@@ -12,41 +12,31 @@
   <div>
     <button @click="createTutorial()">Create Tutorial</button>
   </div>
+  <div>
+    <li v-for="tutor in tutorials">
+      {{ tutor.description }}
+    </li>
+  </div>
 </template>
 
 
-<script>
-    export default {
-        data() {
-            return {
-                tutorial: {}
-            }
-        },
-        mounted() {
-            console.log(this.tutorial)
-        },
-        methods: {
-          createTutorial() {
-            axios.post( 'http://localhost:3000/api/tutorials', this.tutorial )
-            .then( function ( res) {
-              console.log( 'Created tutorial' );
-              console.log( JSON.stringify( res ) );
-            }).catch( function( err ) {
-              console.log( 'Failed to create tutorial' );
-              console.log( JSON.stringify( err ) );
-            })
-          }
-        }
-    }
-</script>
-
 <script setup>
-import { ref, onMounted } from 'vue'
+  import { onMounted } from 'vue'
 
-// functions that mutate state and trigger updates
+  let tutorial = {};
+  let tutorials = [];
 
-
-// lifecycle hooks
-
+  onMounted(() => {
+    axios.get( 'http://localhost:3000/api/tutorials' )
+    .then( function( res ) {
+      console.log( res )
+      tutorials = res.data
+      console.log( tutorials )
+    }).catch( function( err ) {
+      console.log( err );
+    })
+  })
 </script>
+
+
 
