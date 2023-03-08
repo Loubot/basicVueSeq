@@ -2,7 +2,6 @@
   "name": "nodevueex",
   "version": "1.0.0",
   "private": true,
-  "description": "",
   "author": "",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -18,18 +17,20 @@
     "mysql2": "^3.1.2",
     "sequelize": "^6.29.0",
     "vue": "^3.2.13",
+    "vue-resource": "^1.5.3",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-airbnb": "^6.0.0",
+    "axios": "^0.18.1",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-vue": "^8.0.3",
     "eslint-plugin-vuejs-accessibility": "^1.1.0",
-    "lint-staged": "^11.1.2"
+    "lint-staged": "^11.1.2",
+    "vue-cli-plugin-axios": "~0.0.4"
   },
   "_id": "nodevueex@1.0.0",
   "gitHooks": {
