@@ -9,9 +9,12 @@
   <div>
     <input v-model="tutorial.description" placeholder="Description" />
   </div>
-  <div>
-    <button @click="createTutorial()">Create Tutorial</button>
+
+
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" @click="createTutorial()" class="btn btn-success">Create tutorial</button>
   </div>
+
   <div>
     <li v-for="tutor in tutorials">
       {{ tutor.description }}
@@ -22,6 +25,14 @@
 
 <script setup>
   import { onMounted } from 'vue'
+  function createTutorial() {
+    axios.post( 'http://localhost:3000/api/tutorials', tutorial )
+    .then( function ( res ) {
+      console.log( res.data )
+    }).catch( function( err ) {
+      console.log( err )
+    })
+  }
 
   let tutorial = {};
   let tutorials = [];

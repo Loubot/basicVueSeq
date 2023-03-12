@@ -4,11 +4,14 @@ const cors = require('cors');
 
 const app = express();
 
+
 const corsOptions = {
   origin: 'http://localhost:8080',
 };
 
 app.use(cors(corsOptions));
+
+app.use('/css', express.static( './node_modules/bootstrap/dist/css' ))
 
 const db = require('./models');
 db.sequelize.sync();
