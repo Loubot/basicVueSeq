@@ -11,6 +11,7 @@
   </div>
 
 
+
   <div class="btn-group" role="group" aria-label="Basic example">
     <button type="button" @click="createTutorial()" class="btn btn-success">Create tutorial</button>
   </div>
@@ -47,6 +48,15 @@
       console.log( err );
     })
   })
+
+</script>
+
+<script >
+    export default {
+    data() {
+      return { tutorial: {} }
+    }
+  }
 </script>
 
 
