@@ -13,13 +13,30 @@
 
 
   <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" @click="createTutorial()" class="btn btn-success">Create tutorial</button>
+    <!-- <button type="button" @click="createTutorial()" class="btn btn-success"></button> -->
+    <ui-button icon="add" @click="createTutorial()">Create tutorial</ui-button>
   </div>
 
   <div>
     <li v-for="tutor in tutorials">
       {{ tutor.description }}
     </li>
+  </div>
+
+  <div>
+    <ui-fab icon="favorite_border"></ui-fab>
+<ui-fab icon="favorite_border" mini></ui-fab>
+
+<ui-fab>
+  <template #default="{ iconClass }">
+    <svg-logo :class="iconClass"></svg-logo>
+  </template>
+</ui-fab>
+<ui-fab mini>
+  <template #default="{ iconClass }">
+    <svg-logo :class="iconClass"></svg-logo>
+  </template>
+</ui-fab>
   </div>
 </template>
 
