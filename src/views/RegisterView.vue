@@ -1,30 +1,33 @@
 <template>
   <div>
     Register
-    <pre >{{ data }}</pre>
+    <span v-for="(res, key) in results" :key="key">
+      {{ res.title }}
+    </span>
   </div>
 
 
 </template>
 
-<script setup>
-  import { onMounted } from 'vue'
-  import { ref } from 'vue'
-  import {userMethods}  from '../services/userMethods.js'
-
-
-  let tutorial = {};
-  let tutorials = [];
-
-  onMounted(() => {
-  })
-
-</script>
-
 <script >
-    export default {
+  export default {
+    name: 'nowSure',
     data() {
-      return { tutorial: {} }
+      return {
+        results: []
+      }
+    },
+    async mounted() {
+      this.getResults()
+    },
+    methods: {
+      getResults: async function() {
+        const response = await axios.get( 'http://localhost:3000/api/tutorials' )
+        this.results = response.data
+      }
     }
   }
+
+
 </script>
+

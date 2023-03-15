@@ -2,7 +2,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import userMethods from "./services/userMethods.js";
 window.axios = require('axios');
 
 import BalmUI from 'balm-ui'; // Official Google Material Components
