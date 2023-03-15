@@ -22,8 +22,12 @@
     },
     methods: {
       getResults: async function() {
-        const response = await axios.get( 'http://localhost:3000/api/tutorials' )
-        this.results = response.data
+        // const response = await axios.get( 'http://localhost:3000/api/tutorials' )
+        // this.results = response.data
+        axios.get( 'http://localhost:3000/api/tutorials' )
+        .then( function( res ) {
+          results = res.data
+        })
       }
     }
   }
