@@ -41,7 +41,7 @@ exports.findAll = (req, res) => {
   // const title = req.query.firstName;
   // var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
-  User.findAll({ where: condition })
+  User.findAll()
     .then(data => {
       res.send(data);
     })
