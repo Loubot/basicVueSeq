@@ -17,16 +17,16 @@
         results: []
       }
     },
-    async mounted() {
+     mounted() {
       this.getResults()
     },
     methods: {
-      getResults: async function() {
+      getResults:  function() {
         // const response = await axios.get( 'http://localhost:3000/api/tutorials' )
         // this.results = response.data
         axios.get( 'http://localhost:3000/api/tutorials' )
-        .then( function( res ) {
-          results = res.data
+        .then( ( res ) => {
+          this.results = res.data
         })
       }
     }
