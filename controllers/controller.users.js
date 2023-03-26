@@ -2,8 +2,13 @@ const db = require("../models");
 const User = db.users;
 const Op = db.Sequelize.Op;
 
+exports.allAccess = (req, res) => {
+  res.status(200).send("Public Content.");
+};
 
-
+exports.userBoard = (req, res) => {
+  res.status(200).send("User Content.");
+};
 // Create and Save a new User
 exports.create = (req, res) => {
   if (!req.body.firstName) {

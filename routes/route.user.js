@@ -1,7 +1,27 @@
-module.exports = app => {
-  const users = require("../controllers/controller.users.js");
+const { authJwt } = require("../middleware");
+const users = require("../controllers/controller.users.js");
 
-  var router = require("express").Router();
+var router = require("express").Router();
+const controller = require("../controllers/controller.users");
+
+module.exports = app => {
+
+
+app.use(function(req, res, next) {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-access-token, Origin, Content-Type, Accept"
+  );
+  next();
+});
+
+app.get("/api/test/all", controller.allAccess);
+
+app.get(
+  "/api/test/user",
+  [authJwt.verifyToken],
+  controller.userBoard
+);
 
   // Create a new user
   router.post("/", users.create);
